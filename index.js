@@ -1,3 +1,4 @@
+"use strict"
 const player = {
   songs: [
     {
@@ -54,7 +55,7 @@ const player = {
 }
 function findSong(id){
   let notValId=true;
-  for(song of player.songs){
+  for(let song of player.songs){
     if (song.id===id){
       return song;
     }
@@ -63,11 +64,14 @@ function findSong(id){
 }
 
 function playSong(id) {
-      player.playSong(findSong(id));
+  player.playSong(findSong(id));
 }
 
 function removeSong(id) {
-  // your code here
+  player.songs.splice(player.songs.indexOf(findSong(id)),1);
+  for(let playList of player.playlists){
+    playList.songs.splice(playList.songs.indexOf(id),1)
+  }
 }
 
 function addSong(title, album, artist, duration, id) {
