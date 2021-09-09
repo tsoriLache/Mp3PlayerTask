@@ -133,10 +133,18 @@ function playPlaylist(id) {
     playSong(songId)
   }
 }
-playPlaylist(1)
 
 function editPlaylist(PlaylistId, songId) {
-  // your code here
+  let playlistIndex=player.playlists.indexOf(findPlaylist(PlaylistId));
+  findSong(songId);
+  if(player.playlists[playlistIndex].songs.indexOf(songId)===(-1)){
+    player.playlists[playlistIndex].songs.push(songId);
+  }else{
+    player.playlists[playlistIndex].songs.splice(player.playlists[playlistIndex].songs.indexOf(songId),1);
+  }
+  if(player.playlists[playlistIndex].songs.length===0){
+    removePlaylist(PlaylistId);
+  }
 }
 
 function playlistDuration(id) {
