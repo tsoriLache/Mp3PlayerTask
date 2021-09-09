@@ -156,7 +156,31 @@ function playlistDuration(id) {
 }
 
 function searchByQuery(query) {
-  // your code here
+  const QUERY=query.toUpperCase();
+  const queryObj={"songs":[],"playlists":[]}
+  for(let song of player.songs) {
+    if(song.title.toUpperCase().includes(QUERY)
+      ||song.artist.toUpperCase().includes(QUERY)
+      ||song.album.toUpperCase().includes(QUERY)){
+        queryObj.songs.push(song);
+    }
+  }
+  for(let playlist of player.playlists){
+    if(playlist.name.toUpperCase().includes(QUERY)){
+      queryObj.playlists.push(playlist);
+    }
+  }
+  queryObj.songs.sort(function(a, b) {
+    let titleA = a.title.toUpperCase(); 
+    let titleB = b.title.toUpperCase(); 
+    if (titleA < titleB) {
+      return -1;
+    }
+    if (titleA > titleB) {
+      return 1;
+    }
+  });
+  return queryObj;
 }
 
 function searchByDuration(duration) {
