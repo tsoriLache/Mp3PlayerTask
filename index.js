@@ -181,17 +181,31 @@ function searchByQuery(query) {
       queryObj.playlists.push(playlist);
     }
   }
-  queryObj.songs.sort(function(a, b) {
-    let titleA = a.title.toUpperCase(); 
-    let titleB = b.title.toUpperCase(); 
-    if (titleA < titleB) {
-      return -1;
-    }
-    if (titleA > titleB) {
-      return 1;
-    }
-  });
+  queryObj.songs.sort(sortByTitle);
+  queryObj.playlists.sort(sortByName);
   return queryObj;
+}
+
+function sortByTitle(a, b) {
+  let titleA = a.title.toUpperCase(); 
+  let titleB = b.title.toUpperCase(); 
+  if (titleA < titleB) {
+    return -1;
+  }
+  if (titleA > titleB) {
+    return 1;
+  }
+}
+
+function sortByName(a, b) {
+  let nameA = a.name.toUpperCase(); 
+  let nameB = b.name.toUpperCase(); 
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
 }
 
 function searchByDuration(duration) {
