@@ -148,7 +148,11 @@ function editPlaylist(PlaylistId, songId) {
 }
 
 function playlistDuration(id) {
-  // your code here
+  let plDuration=0;
+  for(let songID of findPlaylist(id).songs){
+    plDuration+=(findSong(songID).duration);
+  }
+  return (plDuration);          //why is that in sec ??
 }
 
 function searchByQuery(query) {
