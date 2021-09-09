@@ -129,8 +129,11 @@ function createPlaylist(name, id=generatePlaylistId()) {
 }
 
 function playPlaylist(id) {
-  // your code here
+  for(let songId of findPlaylist(id).songs){
+    playSong(songId)
+  }
 }
+playPlaylist(1)
 
 function editPlaylist(PlaylistId, songId) {
   // your code here
