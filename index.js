@@ -48,14 +48,20 @@ const player = {
     { id: 5, name: 'Israeli', songs: [4, 5] },
   ],
   playSong(song) {
-    console.log(/* your code here */)
-  },
+    console.log(`Playing ${song.title} from ${song.album} by ${song.artist} | `
+    +((Math.floor(song.duration/60))<10? "0": "")+`${Math.floor(song.duration/60)}:${song.duration%60}.`)
+  }
 }
-
 function playSong(id) {
-  // your code here
+  let notValId=true;
+  for(song of player.songs){
+    if (song.id===id){
+      player.playSong(song);
+      notValId=false;
+    }
+  }
+  if(notValId) throw "id not found";
 }
-
 function removeSong(id) {
   // your code here
 }
