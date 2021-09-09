@@ -73,9 +73,28 @@ function removeSong(id) {
     playList.songs.splice(playList.songs.indexOf(id),1)
   }
 }
-
-function addSong(title, album, artist, duration, id) {
-  // your code here
+let newId=10;
+function generateId(){
+newId+=1;
+return newId;
+}
+function durationToSeconds(duration){
+  return((parseInt(duration[0])*10)+parseInt(duration[1]))*60
+          +parseInt(duration[3]*10)+parseInt(duration[4])
+}
+function addSong(title, album, artist, duration, id=generateId()) {
+  try{
+    findSong(id) 
+  }catch(err) {
+    player.songs.push({"id":id,
+    "title": title,
+    "album": album,
+    "artist": artist,
+    "duration": durationToSeconds(duration),
+    })
+    return id;
+  }
+  throw "ID taken"
 }
 
 function removePlaylist(id) {
