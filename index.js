@@ -136,7 +136,7 @@ function editPlaylist(PlaylistId, songId) {
   // your code here
 }
 
-function PlaylistDuration(id) {
+function playlistDuration(id) {
   // your code here
 }
 
