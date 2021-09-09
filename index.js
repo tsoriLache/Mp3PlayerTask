@@ -90,8 +90,17 @@ newSongId+=1;
 return newSongId;
 }
 function durationToSeconds(duration){
+  checkDurationInput(duration)
   return((parseInt(duration[0])*10)+parseInt(duration[1]))*60
           +parseInt(duration[3]*10)+parseInt(duration[4])
+}
+function checkDurationInput(duration){   
+  console.log(0<=parseInt(duration[0]))
+  console.log(duration[2]===":")
+  if(0<=parseInt(duration[0])&&parseInt(duration[0])<=9&&0<=parseInt(duration[1])&&parseInt(duration[1])<=9
+    &&duration[2]===":"&&0<=parseInt(duration[3])&&parseInt(duration[3])<6&&0<=parseInt(duration[4])&&parseInt(duration[4])<=9&&duration.length===5){
+      return true
+    }else throw 'duration is not in the correct format...(this is the format-"00:00")'
 }
 function addSong(title, album, artist, duration, id=generateSongId()) {
   try{
@@ -184,6 +193,7 @@ function searchByQuery(query) {
 }
 
 function searchByDuration(duration) {
+  checkDurationInput(duration);
   let sec=durationToSeconds(duration);
   let allDurationArr=[];
   let matchingArr=[];                            //matching array that saves the song and playlist parallel(they will have the same index) to the duration array(allDurationArr)
