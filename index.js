@@ -64,11 +64,11 @@ function findSong(id){
   throw "ID not found";
 }
 
-function findPlayList(id){ 
+function findPlaylist(id){ 
   let notValId=true;
-  for(let playList of player.playlists){
-    if (playList.id===id){
-      return playList;
+  for(let Playlist of player.playlists){
+    if (Playlist.id===id){
+      return Playlist;
     }
   }
   throw "ID not found";
@@ -80,8 +80,8 @@ function playSong(id) {
 
 function removeSong(id) {
   player.songs.splice(player.songs.indexOf(findSong(id)),1);
-  for(let playList of player.playlists){
-    playList.songs.splice(playList.songs.indexOf(id),1)
+  for(let playlist of player.playlists){
+    playlist.songs.splice(playlist.songs.indexOf(id),1)
   }
 }
 let newId=10;
@@ -109,7 +109,7 @@ function addSong(title, album, artist, duration, id=generateId()) {
 }
 
 function removePlaylist(id) {
-  player.playlists.splice(player.playlists.indexOf(findPlayList(id)),1);
+  player.playlists.splice(player.playlists.indexOf(findPlaylist(id)),1);
 }
 
 function createPlaylist(name, id) {
@@ -120,11 +120,11 @@ function playPlaylist(id) {
   // your code here
 }
 
-function editPlaylist(playlistId, songId) {
+function editPlaylist(PlaylistId, songId) {
   // your code here
 }
 
-function playlistDuration(id) {
+function PlaylistDuration(id) {
   // your code here
 }
 
