@@ -50,7 +50,7 @@ const player = {
   ],
   playSong(song) {
     console.log(`Playing ${song.title} from ${song.album} by ${song.artist} | `
-    +((Math.floor(song.duration/60))<10? "0": "")+`${Math.floor(song.duration/60)}:${song.duration%60}.`)
+    +((Math.floor(song.duration/60))<10? "0": "")+`${Math.floor(song.duration/60)}:` +((song.duration%60)<10? "0": "")+`${song.duration%60}.`)
   }
 }
 
