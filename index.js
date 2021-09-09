@@ -52,16 +52,20 @@ const player = {
     +((Math.floor(song.duration/60))<10? "0": "")+`${Math.floor(song.duration/60)}:${song.duration%60}.`)
   }
 }
-function playSong(id) {
+function findSong(id){
   let notValId=true;
   for(song of player.songs){
     if (song.id===id){
-      player.playSong(song);
-      notValId=false;
+      return song;
     }
   }
-  if(notValId) throw "id not found";
+  throw "id not found";
 }
+
+function playSong(id) {
+      player.playSong(findSong(id));
+}
+
 function removeSong(id) {
   // your code here
 }
