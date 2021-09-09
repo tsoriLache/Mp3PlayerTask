@@ -82,24 +82,27 @@ function removeSong(id) {
     playlist.songs.splice(playlist.songs.indexOf(id),1)
   }
 }
+
 let newSongId=10;
 function generateSongId(){
-newSongId+=1;
-return newSongId;
+  newSongId+=1;
+  return newSongId;
 }
+
 function durationToSeconds(duration){
   checkDurationInput(duration)
   return((parseInt(duration[0])*10)+parseInt(duration[1]))*60
           +parseInt(duration[3]*10)+parseInt(duration[4])
 }
-function checkDurationInput(duration){   
-  console.log(0<=parseInt(duration[0]))
-  console.log(duration[2]===":")
-  if(0<=parseInt(duration[0])&&parseInt(duration[0])<=9&&0<=parseInt(duration[1])&&parseInt(duration[1])<=9
-    &&duration[2]===":"&&0<=parseInt(duration[3])&&parseInt(duration[3])<6&&0<=parseInt(duration[4])&&parseInt(duration[4])<=9&&duration.length===5){
+
+function checkDurationInput(duration){   // checks digits(maximum is 59:59/minimum is 00:00),:,length.
+  if(0<=parseInt(duration[0])&&parseInt(duration[0])<6&&0<=parseInt(duration[1])&&parseInt(duration[1])<=9
+    &&duration[2]===":"&&0<=parseInt(duration[3])&&parseInt(duration[3])<6&&0<=parseInt(duration[4])
+    &&parseInt(duration[4])<=9&&duration.length===5){
       return true
     }else throw 'duration is not in the correct format...(this is the format-"00:00")'
 }
+
 function addSong(title, album, artist, duration, id=generateSongId()) {
   try{
     findSong(id) 
@@ -141,7 +144,7 @@ function playPlaylist(id) {
   }
 }
 
-function editPlaylist(PlaylistId, songId) {
+function editPlaylist(PlaylistId, songId) {     // to check readability!!
   let playlistIndex=player.playlists.indexOf(findPlaylist(PlaylistId));
   findSong(songId);
   if(player.playlists[playlistIndex].songs.indexOf(songId)===(-1)){
@@ -159,7 +162,7 @@ function playlistDuration(id) {
   for(let songID of findPlaylist(id).songs){
     plDuration+=(findSong(songID).duration);
   }
-  return (plDuration);          //why is that in sec ??
+  return (plDuration);          
 }
 
 function searchByQuery(query) {
@@ -168,8 +171,9 @@ function searchByQuery(query) {
   for(let song of player.songs) {
     if(song.title.toUpperCase().includes(QUERY)
       ||song.artist.toUpperCase().includes(QUERY)
-      ||song.album.toUpperCase().includes(QUERY)){
-        queryObj.songs.push(song);
+      ||song.album.toUpperCase().includes(QUERY))
+    {
+      queryObj.songs.push(song);
     }
   }
   for(let playlist of player.playlists){
