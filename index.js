@@ -53,14 +53,25 @@ const player = {
     +((Math.floor(song.duration/60))<10? "0": "")+`${Math.floor(song.duration/60)}:${song.duration%60}.`)
   }
 }
-function findSong(id){
+
+function findSong(id){ 
   let notValId=true;
   for(let song of player.songs){
     if (song.id===id){
       return song;
     }
   }
-  throw "id not found";
+  throw "ID not found";
+}
+
+function findPlayList(id){ 
+  let notValId=true;
+  for(let playList of player.playlists){
+    if (playList.id===id){
+      return playList;
+    }
+  }
+  throw "ID not found";
 }
 
 function playSong(id) {
@@ -98,7 +109,7 @@ function addSong(title, album, artist, duration, id=generateId()) {
 }
 
 function removePlaylist(id) {
-  // your code here
+  player.playlists.splice(player.playlists.indexOf(findPlayList(id)),1);
 }
 
 function createPlaylist(name, id) {
