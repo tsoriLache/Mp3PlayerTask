@@ -55,7 +55,6 @@ const player = {
 }
 
 function findSong(id){ 
-  let notValId=true;
   for(let song of player.songs){
     if (song.id===id){
       return song;
@@ -65,7 +64,6 @@ function findSong(id){
 }
 
 function findPlaylist(id){ 
-  let notValId=true;
   for(let Playlist of player.playlists){
     if (Playlist.id===id){
       return Playlist;
