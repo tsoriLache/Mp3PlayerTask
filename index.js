@@ -184,9 +184,25 @@ function searchByQuery(query) {
 }
 
 function searchByDuration(duration) {
-  // your code here
+  let sec=durationToSeconds(duration);
+  let allDurationArr=[];
+  let matchingArr=[];                            //matching array that saves the song and playlist parallel(they will have the same index) to the duration array(allDurationArr)
+  let closestDuration=player.songs[0].duration;
+  for(let song of player.songs){
+    allDurationArr.push(song.duration);
+    matchingArr.push(song);
+  }
+  for(let playlist of player.playlists){
+    allDurationArr.push(playlistDuration(playlist.id));
+    matchingArr.push(playlist);
+  }
+  for(let dur of allDurationArr){
+    if(Math.abs(dur-sec)<Math.abs(closestDuration-sec)){
+        closestDuration=dur;
+    }
+  }
+  return matchingArr[allDurationArr.indexOf(closestDuration)];
 }
-
 module.exports = {
   player,
   playSong,
