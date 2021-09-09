@@ -84,16 +84,16 @@ function removeSong(id) {
     playlist.songs.splice(playlist.songs.indexOf(id),1)
   }
 }
-let newId=10;
-function generateId(){
-newId+=1;
-return newId;
+let newSongId=10;
+function generateSongId(){
+newSongId+=1;
+return newSongId;
 }
 function durationToSeconds(duration){
   return((parseInt(duration[0])*10)+parseInt(duration[1]))*60
           +parseInt(duration[3]*10)+parseInt(duration[4])
 }
-function addSong(title, album, artist, duration, id=generateId()) {
+function addSong(title, album, artist, duration, id=generateSongId()) {
   try{
     findSong(id) 
   }catch(err) {
@@ -114,6 +114,11 @@ function removePlaylist(id) {
 
 function createPlaylist(name, id) {
   // your code here
+let newPlaylistId=3
+function generatePlaylistId(){
+  newPlaylistId+=1
+  return newPlaylistId
+}
 }
 
 function playPlaylist(id) {
