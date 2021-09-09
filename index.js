@@ -112,13 +112,20 @@ function removePlaylist(id) {
   player.playlists.splice(player.playlists.indexOf(findPlaylist(id)),1);
 }
 
-function createPlaylist(name, id) {
-  // your code here
 let newPlaylistId=3
 function generatePlaylistId(){
   newPlaylistId+=1
   return newPlaylistId
 }
+
+function createPlaylist(name, id=generatePlaylistId()) {
+  try{
+    findPlaylist(id) 
+  }catch(err) {
+    player.playlists.push({ "id":id , "name": name, "songs": [] })
+    return id;
+  }
+  throw "ID taken"
 }
 
 function playPlaylist(id) {
