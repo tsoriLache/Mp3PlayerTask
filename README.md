@@ -1,8 +1,9 @@
 # MP3 Player :
 this project suppose to demonstrate simple MP3 Player.
 
+![image](https://user-images.githubusercontent.com/89573774/132813316-8c310d9f-ef3a-4223-bf49-b59422ba651a.png)
 
-## functions you should know about:
+## Basic functions you should know about:
 
 - `playSong` - Gets a song ID, and plays it by printing it's data.
 - `removeSong` - Gets a song ID, and removes it from the player (from songs and playlists).
@@ -20,11 +21,11 @@ this project suppose to demonstrate simple MP3 Player.
 __Note__: The functions are not yet merge to the main branch.
 
 
-## additions
+## Additions
 Nulla volutpat, ante sed dignissim viverra, mauris dui varius augue, id pellentesque diam erat at quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque dictum fermentum purus, in fermentum arcu pellentesque a.
 
 
 __Note__: The functions are not yet merge to the main branch.
 
 
-### if you have anything to add or comment I would love it.
+### If you have anything to add or comment I would love it.
