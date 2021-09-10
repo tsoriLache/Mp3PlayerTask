@@ -229,6 +229,26 @@ function searchByDuration(duration) {
   }
   return matchingArr[allDurationArr.indexOf(closestDuration)];
 }
+
+function shufflePlaylist(id){
+  let shuffleArr=[];
+  let indexArr=[];
+  let randomIndex;
+  for(let i=0;i<findPlaylist(id).songs.length;i++){
+    indexArr.push(i);
+  }
+  while(indexArr.length!==0){
+    randomIndex=Math.floor(Math.random() * indexArr.length)
+    shuffleArr.push(findPlaylist(id).songs[indexArr[randomIndex]])
+    indexArr.splice(randomIndex,1)
+  }
+  console.log(shuffleArr)
+  for(let song of shuffleArr){
+    playSong(song)
+  }
+}
+
+
 module.exports = {
   player,
   playSong,
