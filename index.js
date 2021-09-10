@@ -100,7 +100,7 @@ function checkDurationInput(duration){   // checks digits(maximum is 59:59/minim
     &&duration[2]===":"&&0<=parseInt(duration[3])&&parseInt(duration[3])<6&&0<=parseInt(duration[4])
     &&parseInt(duration[4])<=9&&duration.length===5){
       return true
-    }else throw 'duration is not in the correct format...(this is the format-"00:00")'
+    }else throw 'Duration is not in the correct format...This is the format-"mm:ss" (for example 03:13)'
 }
 
 function addSong(title, album, artist, duration, id=generateSongId()) {
