@@ -22,7 +22,8 @@ __Note__: The functions are not yet merge to the main branch.
 
 
 ## Additions
-Nulla volutpat, ante sed dignissim viverra, mauris dui varius augue, id pellentesque diam erat at quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque dictum fermentum purus, in fermentum arcu pellentesque a.
+- `shufflePlaylist` -play any playlist in random order.
+- `autoPlay` - automatically play next song.(not added yet!)
 
 
 __Note__: The functions are not yet merge to the main branch.
