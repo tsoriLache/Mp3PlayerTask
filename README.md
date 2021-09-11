@@ -5,7 +5,7 @@ this project suppose to demonstrate simple MP3 Player.
 
 ## Basic functions you should know about:
 
-- `playSong` - Gets a song ID, and plays it by printing it's data.
+- `playSong` - Gets a song ID and number of song to play automatically(optional), and plays it by printing it's data.
 - `removeSong` - Gets a song ID, and removes it from the player (from songs and playlists).
 - `addSong` - Gets a title, album, artist, duration(`mm:ss`) & ID(optional).  
 - `removePlaylist` - Gets a playlist ID. Remove the playlist from the player.
@@ -23,10 +23,14 @@ __Note__: The functions are not yet merge to the main branch.
 
 ## Additions
 - `shufflePlaylist` -play any playlist in random order.
-- `autoPlay` - automatically play next song.(not added yet!)
+- `autoPlay` - automatically play next song.(insted of adding it as new function I updated playSong so you can choose how many song you want it to play automatically(randomly),if you don't choose it plays only the song that match the ID.)
 
 
 __Note__: The functions are not yet merge to the main branch.
+
+## bugs /errors
+- The autoPlay adittion choose the songs the next song randomly from all the songs in the player…so if you don't have many songs it will probably repeat the same songs all the time! maybe even 2 or 3 times in a row.
+
 
 
 ### If you have anything to add or comment I would love it.
