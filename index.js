@@ -72,8 +72,9 @@ function findPlaylist(id){
   throw "ID not found";
 }
 
-function playSong(id) {
+function playSong(id,auto=1) {
   player.playSong(findSong(id));
+  if(auto>1) playSong(player.songs[Math.floor(Math.random() * player.songs.length)].id,auto-1)
 }
 
 function removeSong(id) {
