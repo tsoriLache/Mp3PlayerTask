@@ -242,3 +242,4 @@ module.exports = {
   searchByQuery,
   searchByDuration,
 }
+
