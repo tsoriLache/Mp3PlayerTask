@@ -105,3 +105,4 @@ module.exports = {
   searchByQuery,
   searchByDuration,
 }
+
